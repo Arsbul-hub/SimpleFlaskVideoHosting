@@ -1,0 +1,10 @@
+email-validator
+flask-migrate
+flask-wtf
+Werkzeug
+Flask
+alembic
+SQLAlchemy
+pillow
+WTForms
+pymorphy2

@@ -1,0 +1,23 @@
+video {
+    width: 60vw;
+}
+.title {
+    font-size: 25px
+}
+
+.studio-info img{
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+}
+.studio-info {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+.studio-info p {
+    margin: 0 20px;
+    font-size: 17px;
+}
+
+

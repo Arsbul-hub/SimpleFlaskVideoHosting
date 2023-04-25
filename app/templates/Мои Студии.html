@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends "base.html" %}
+<head>
+    {% block head %}
+    <meta charset="utf-8">
+    <title>Мои студии</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/my_studios.css">
+    {% endblock %}
+<body>
+{% block after %}
+
+<a href="{{url_for('create_studio')}}">
+    <div class="create-button">
+        <i class="fa-solid fa-plus"></i>
+        <p>Создать студию</p>
+    </div>
+</a>
+{% if studios %}
+<p class="title">Мои студии</p>
+<div class="content">
+    {% for studio in studios %}
+    <a href="{{url_for('show_studio', id=studio.id)}}">
+        <div class="studio-block">
+
+
+            <img src="data:image/{{resources.query.filter_by(id=studio.cover_id).first().format}};base64, {{resources.query.filter_by(id=studio.cover_id).first().source}}"/>
+            <div class="title-block">
+
+                <p>{{studio.title}}</p>
+                <p class="description">{{studio.description}}</p>
+            </div>
+        </div>
+    </a>
+    {% endfor %}
+
+</div>
+{% else %}
+<div class="is-empty">
+    <p>Пока у вас студий нет</p>
+
+</div>
+{% endif %}
+{% endblock %}
+</body>
+</html>

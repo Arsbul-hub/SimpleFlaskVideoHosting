@@ -1,0 +1,68 @@
+<!-- Vigbo-cms //static-cdn4.vigbo.tech/u19745/26206/ bruno2 -->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    {% block head %}{% endblock %}
+    <meta charset="utf-8">
+
+
+    <link rel="stylesheet" type="text/css"
+          href="static/css/build_cms_front.css">
+
+
+    <link rel="stylesheet" type="text/css" href="/static/css/custom.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/base.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/search.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/page.css">
+    <script src="/static/js/jquery.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="/static/css/adaptive.css">
+    <link rel="icon" href="/static/images/icon.ico">
+    <script src="https://kit.fontawesome.com/6957c188ce.js" crossorigin="anonymous"></script>
+    <script src="/static/js/site.js"></script>
+
+</head>
+<body data-template="bruno2"
+      class="f__preset-box f__site f__2 loading locale_ru bruno2 mod--search-disable mod--img-logo mod--header-static mod--menu-action-on-scroll mod--menu-static-on-scroll desktop adaptive-desktop mod--horizontal-menu mod--infoline-disable js--loading-cascade mod--font-none-preset layout-logo-left--by-logo "
+      data-preview="">
+{% block before %}{% endblock %}
+<div class="l-wrap js-wrap">
+
+
+    <div class="nav-menu">
+        <!--        <div class="logo">-->
+        <!--            <a href="/">-->
+        <!--                <img src="/static/images/logo.png">-->
+        <!--            </a>-->
+        <!--        </div>-->
+        <div class="nav-menu-item">
+            <nav>
+                <ul class="topmenu">
+
+                    <li><a href="{{url_for('top')}}">Популярное</a></li>
+
+                    <!--                    <li><a href="{{url_for('create_studio')}}">Создать студию</a></li>-->
+                    {% if is_user_authenticated %}
+                    <li><a href="{{url_for('my_studios')}}">Мои студии</a></li>
+                    {% endif %}
+                    {% if not is_user_authenticated %}
+                    <li><a href="{{url_for('login')}}">Вход</a></li>
+                    <li><a href="{{url_for('register')}}">Регистрация</a></li>
+                    {% else %}
+                    <li><a href="{{url_for('logout')}}">Выйти</a></li>
+                    {% endif %}
+                </ul>
+            </nav>
+
+
+        </div>
+
+    </div>
+
+    {% block after %}{% endblock %}
+</div>
+<script src="/static/js/site.js"></script>
+
+
+</body>
+</html><!-- cached 2022-11-24 10:12:41 e24cc38881bdebf1e12f84cc0a6bf3ce -->

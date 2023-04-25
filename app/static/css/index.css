@@ -1,0 +1,54 @@
+.description {
+
+    width: 80%;
+    margin: 40px auto;
+}
+.description p {
+
+
+
+    margin-top: 10px;
+    line-height: 2;
+
+}
+
+
+.description hr {
+    margin-top: 30px;
+    margin-bottom: 20px;
+
+	padding: 0;
+	height: 0;
+}
+
+
+/*.bg-image img {
+    height: 100%;
+    width: 100%;
+}
+.bg-image {
+    position: absolute;
+    top: 0;
+    opacity: 50%;
+
+    width: 100%;
+}*/
+#bg-image {
+    background-image: url(/static/images/background_image.png);
+    height: 100vh;
+
+    background-position: center;
+    width: 100%;
+    background-size: cover;
+    position: absolute;
+    opacity: 0.3;
+}
+
+
+.title {
+    margin-top: 40px;
+    text-align: center;
+    font-size: 30px;
+}
+
+

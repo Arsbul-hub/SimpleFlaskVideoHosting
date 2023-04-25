@@ -1,0 +1,82 @@
+<!-- Vigbo-cms //static-cdn4.vigbo.tech/u19745/26206/ bruno2 -->
+<!DOCTYPE html>
+<html lang="ru">
+{% extends "base.html" %}
+<head>
+    {% block head %}
+    <meta charset="utf-8">
+    <title>Студия</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/videos_list.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/studio.css">
+    <script src="/static/js/search.js"></script>
+    {% endblock %}
+</head>
+<body data-template="bruno2"
+      class="f__preset-box f__site f__2 loading locale_ru bruno2 mod--search-disable mod--img-logo mod--header-static mod--menu-action-on-scroll mod--menu-static-on-scroll desktop adaptive-desktop mod--horizontal-menu mod--infoline-disable js--loading-cascade mod--font-none-preset layout-logo-left--by-logo "
+      data-preview="">
+
+
+<div class="l-wrap js-wrap">
+
+    {% block after %}
+
+
+    <div class="container">
+        <div class="cap">
+            <div class="avatar-block">
+                <img src="data:image/{{cover.format}};base64, {{cover.source}}">
+                <div class="title-block">
+
+                    <p>{{studio.title}}</p>
+                    <p class="description">{{studio.description}}</p>
+                </div>
+            </div>
+            {% if is_users_studio %}
+            <a href="{{url_for('add_video', id=studio.id)}}">
+                <div class="upload-button">
+                    <i class="fa-solid fa-upload"></i>
+                    <p>Загрузить ролик</p>
+                </div>
+            </a>
+            {% endif %}
+        </div>
+
+        <hr>
+        <p class="subtitle">Все видео с этого канала</p>
+        {% if videos %}
+        <div class="videos-list">
+
+            {% for video in videos %}
+            <a href="{{url_for('video', id=video.id)}}">
+                <div class="card">
+
+
+                    <img src="data:image/{{resources.query.get(video.cover_id).format}};base64, {{resources.query.get(video.cover_id).source}}">
+                    <p>{{video.title}}</p>
+
+
+                </div>
+            </a>
+            {% endfor %}
+
+        </div>
+        {% else %}
+
+        <div class="is-empty">
+            <p>Пока роликов нет</p>
+
+        </div>
+        {% endif %}
+
+    </div>
+
+    {% endblock %}
+</div>
+
+<!--    <div class="bg-image">-->
+<!--        <img src="/static/images/background_image.png">-->
+<!--    </div>-->
+
+
+</body>
+</html><!-- cached 2022-11-24 10:12:41 e24cc38881bdebf1e12f84cc0a6bf3ce -->

@@ -1,0 +1,71 @@
+<!-- Vigbo-cms //static-cdn4.vigbo.tech/u19745/26206/ bruno2 -->
+<!DOCTYPE html>
+<html lang="ru">
+{% extends "base.html" %}
+<head>
+    {% block head %}
+    <meta charset="utf-8">
+    <title>Популярное</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/index.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/videos_list.css">
+    <script src="/static/js/search.js"></script>
+    {% endblock %}
+</head>
+<body data-template="bruno2"
+      class="f__preset-box f__site f__2 loading locale_ru bruno2 mod--search-disable mod--img-logo mod--header-static mod--menu-action-on-scroll mod--menu-static-on-scroll desktop adaptive-desktop mod--horizontal-menu mod--infoline-disable js--loading-cascade mod--font-none-preset layout-logo-left--by-logo "
+      data-preview="">
+<div class="l-wrap js-wrap">
+
+    {% block after %}
+    <div class="search">
+
+        <input placeholder="Поиск роликов" name="search" onkeydown="get_search_event(event)" id="search-field"
+               type="text" size="52">
+
+    </div>
+    <p class="title">Популярные видео</p>
+    <div class="container">
+        {% if videos_top %}
+        <div class="videos-list">
+
+            {% for video in videos_top %}
+            <a href="{{url_for('video', id=video.id)}}">
+                <div class="card">
+
+
+                    <img src="data:image/{{resources.query.get(video.cover_id).format}};base64, {{resources.query.get(video.cover_id).source}}">
+                    <p>{{video.title}}</p>
+
+                    <a href="{{url_for('show_studio', id=video.studio_id)}}">
+                        <div class="video-info">
+
+                            <img src="data:image/{{resources.query.get(studios.query.get(video.studio_id).cover_id).format}};base64, {{resources.query.get(studios.query.get(video.studio_id).cover_id).source}}">
+
+                            <p>{{studios.query.get(video.studio_id).title}}</p>
+
+                        </div>
+                    </a>
+                </div>
+            </a>
+            {% endfor %}
+
+        </div>
+        {% else %}
+
+        <div class="is-empty">
+            <p>Пока роликов нет</p>
+
+        </div>
+        {% endif %}
+    </div>
+
+    {% endblock %}
+</div>
+
+<!--    <div class="bg-image">-->
+<!--        <img src="/static/images/background_image.png">-->
+<!--    </div>-->
+
+
+</body>
+</html><!-- cached 2022-11-24 10:12:41 e24cc38881bdebf1e12f84cc0a6bf3ce -->

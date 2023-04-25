@@ -1,0 +1,44 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    width: 330px;
+    padding: 10px;
+    margin: 20px;
+
+    background-color: white;
+    border-radius: 10px;
+}
+.card img{
+    width: 100%;
+}
+.videos-list {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+.title-block p {
+    margin: 10px 20px;
+    font-size: 18px;
+}
+
+
+
+.video-info img{
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+}
+.video-info {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+.video-info p {
+    margin: 0 20px;
+    font-size: 17px;
+}
+.video-info .studio-title {
+    font-size: 15px;
+    color: gray;
+    margin-top: 10px;
+}
